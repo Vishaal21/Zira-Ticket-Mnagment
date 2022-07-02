@@ -7,13 +7,14 @@
     font-family: 'Lato',sans-serif;
 }
 body{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
 }
 
 .header{
     background-color: #111;
-    width: 100vw;
+    width: 100%;
     height: 13vh;
     display: flex;
     align-items: center;
@@ -36,12 +37,12 @@ button{
     background-color: #2f3640;
     padding: 1rem 1.3rem;
 }
-.color-pallete button{
+ .color-pallete button{
     margin-inline: 0.8rem;
 }
 .options{
     padding: 1rem 0.5rem;
-}
+} 
 .options button{
     background-color: transparent;
     color: #fff;
@@ -53,6 +54,109 @@ button{
         'GRAD'0,
         'opsz'48
 }
+
+.main{
+    /* height: 87vh; */
+    width: 100%;
+    min-height:87vh;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+    align-items: center;
+    padding-inline: 10%;
+    gap: 3rem;
+    padding-block: 5%;
+    /* padding-inline: 10%; */
+    /* margin: 10%; */
+}
+
+.ticket{
+    width: 16rem;
+    max-width: 80%;
+    height: 35vh;
+    min-height:11rem;
+  
+    
+    border-radius: 0.4rem;
+    /* margin: 1rem; */
+    
+    /* min-width:15 ;
+    max-width: 100%;
+    min-height: 10rem;
+    height: 40%;
+    max-height: 16rem;
+    margin-inline:2rem ;
+    margin-block:2rem;
+    background-color: #fff; */
+ }
+ .ticket-header{
+    width: 100%;
+    height: 8%;
+    background-color: bisque;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+} 
+.ticket-content{
+    width: 100%;
+    height: 92%;
+    background-color: azure;
+}
+.ticket_id{
+    height: 15%;
+    background-color: green;
+}
+textarea{
+    width: 100%;
+    height:85% ;
+    resize:none;
+    background-color: aqua;
+      border-bottom-left-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+    border: none;
+} 
+textarea:focus{
+    outline: none;
+}
+/* .main {
+    height: 87vh;
+    background-color: rgb(241, 234, 234);
+    padding: 2rem;
+}
+
+.ticket {
+    height: 10rem;
+    width: 16rem;
+    margin-top: 10rem;
+    margin-left: 10rem;
+}
+
+.ticket_header {
+    height: 6%;
+    background-color: black;
+}
+
+.ticket_content {
+    height: 94%;
+}
+
+.ticket_id {
+    height: 20%;
+    background-color: white;
+}
+
+textarea {
+    height: 80%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+   
+    line-height: 145%;
+    text-align: center;
+} */
 
 @media(max-width:800px){
     .header{
