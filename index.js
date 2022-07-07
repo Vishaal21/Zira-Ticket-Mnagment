@@ -146,10 +146,7 @@ function changeColor() {
 
 function removeElement() {
     ticket = document.querySelectorAll(".ticket");
-		if (ticket.length == 0) {
-			alert("No ticket found");
-			return;
-		}
+		
 		if (isLock == true) {
 			alert("Please click on unlock");
 			return;
