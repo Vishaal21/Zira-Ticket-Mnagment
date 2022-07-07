@@ -6,6 +6,7 @@ function uuid() {
 	});
 }
 
-let ans = "#"+uuid().slice(0, 6);
-console.log(ans);
+
+// let ans = "#"+uuid().slice(0, 6);
+// console.log(ans);
 

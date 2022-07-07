@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <header class="header">
 
         <div class="color-pallete">
-            <div class="color-box lightblue">
-               <button style="background-color: lightblue;"></button>
-            </div>            
-            <div class="color-box lightpink">
-                <button style="background-color: lightpink;"></button>
-            </div>            
-            <div class="color-box lightgreen">
-                <button style="background-color:lightgreen;"></button>
-            </div>            
-            <div class="color-box #777">
-                <button style="background-color:#666;"></button>
-            </div>            
+            <div class="color-box blue">
+                <button style="background-color: lightblue;"></button>
+            </div>
+            <div class="color-box pink">
+                <button style="background-color: pink;"></button>
+            </div>
+            <div class="color-box green">
+                <button style="background-color:green;"></button>
+            </div>
+            <div class="color-box black ">
+                <button style="background-color:gray;"></button>
+            </div>
         </div>
 
         <div class="options">
@@ -40,10 +45,27 @@
                     </span></button>
             </div>
         </div>
+        <div class="options">
+            <div class="lock-box">
+                <button><i class="fas fa-lock"></i></button>
+            </div>
+            <div class="unlock-box">
+                <button><i class="fas fa-lock-open"></i></button>
+            </div>
+        </div>
 
     </header>
     <div class="main">
-        <div class="ticket">
+        <!-- <div class="ticket">
+            <div class="ticket-header">
+
+            </div>
+            <div class="ticket-content">
+                <div class="ticket_id"></div>
+                <textarea name=""></textarea>
+            </div>
+        </div> -->
+        <!-- <div class="ticket">
             <div class="ticket-header">
 
             </div>
@@ -87,8 +109,8 @@
                 <div class="ticket_id"></div>
                 <textarea name=""></textarea>
             </div>
-        </div>
-        <div class="ticket">
+        </div> -->
+        <!-- <div class="ticket">
             <div class="ticket-header">
 
             </div>
@@ -96,23 +118,35 @@
                 <div class="ticket_id"></div>
                 <textarea name=""></textarea>
             </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-header">
-
-            </div>
-            <div class="ticket-content">
-                <div class="ticket_id"></div>
-                <textarea name=""></textarea>
-            </div>
-        </div>
-      
-      
-      
+        </div> -->
+       <!-- <div class="modal">
+        <textarea name="" value="" placeholder="Enter some task" class="modal-area"></textarea>
         
+          <div class="color-pallete">
+            <div class="color-box lightblue">
+                <button style="background-color: lightblue;"></button>
+            </div>
+            <div class="color-box lightpink">
+                <button style="background-color: lightpink;"></button>
+            </div>
+            <div class="color-box lightgreen">
+                <button style="background-color:lightgreen;"></button>
+            </div>
+            <div class="color-box #777">
+                <button style="background-color:#666;"></button>
+            </div>
+        </div>
+        </div> -->
+    
+       <div class="filter-button">Filter<i style="margin-left:0.5rem;padding-left: 0.8rem;border-left: 1px solid #fff;" class="fa-solid fa-filter"></i></div>
+       <div class="change-button">ChangeColor<i style="margin-left:0.5rem;padding-left: 0.8rem;border-left: 1px solid #fff;" class="fa-solid fa-filter"></i></div>
+
+
     </div>
     <script src="uuid.js"></script>
+    <!-- <script src="create.js"></script> -->
     <script src="index.js"></script>
-    
+
 </body>
+
 </html>
