@@ -23,7 +23,7 @@ const removeBtn=document.querySelector(".remove-box")
 //     })
 // }
 
-var isLock = true;
+var isLock = false;
 var isUnlock = 1;
 addBtn[0].addEventListener('click', (e) => {
     if (isLock) {
@@ -39,25 +39,88 @@ addBtn[0].addEventListener('click', (e) => {
     }
 });
 
+function lockme() {
+    isLock = true;
+		ticket = document.querySelectorAll(".ticket");
+		for (let i = 0; i < ticket.length; i++) {
+			let textarea = ticket[i].children[1].children[1];
+			textarea.setAttribute("readonly", "");
+			console.log(textarea);
+			ticket[i].style.display = "block";
+		}
+}
+
 lockBtn[0].addEventListener("click", () => {
-	isLock = true;
+    isLock = true;
+     ticket = document.querySelectorAll(".ticket");
+			for (let i = 0; i < ticket.length; i++) {
+				let textarea = ticket[i].children[1].children[1];
+				textarea.setAttribute("readonly", "");
+				console.log(textarea);
+				ticket[i].style.display = "block";
+			}
 });
 
 unlockBtn[0].addEventListener("click", () => {
-	isLock = false;
+    isLock = false;
+    ticket = document.querySelectorAll(".ticket");
+    for (let i = 0; i < ticket.length; i++){
+        let textarea = ticket[i].children[1].children[1];
+        textarea.removeAttribute("readonly", "")
+        console.log(textarea)
+        ticket[i].style.display = "block";
+    }
 });
 
-filterBtn[0].addEventListener("click", filterEle());
+filterBtn[0].addEventListener("click", () => {
+    lockme();
+    for (let i = 0; i < box.length; i++) {
+			box[i].addEventListener("click", () => {
+				let color = box[i].classList[1];
+				ticket = document.querySelectorAll(".ticket");
+				for (let i = 0; i < ticket.length; i++) {
+					let eleClass = ticket[i].children[0].classList[0];
+					let element = ticket[i].querySelector(`.${eleClass}`);
+					let eleColor = element.style.backgroundColor;
+					if (eleColor == color) {
+						ticket[i].style.display = "block";
+					} else {
+						ticket[i].style.display = "none";
+					}
+				}
+			});
+		}
+});
 
-removeBtn.addEventListener("click", removeElement());
-
-changeBtn.addEventListener("click", changeColor());
+removeBtn.addEventListener("click", () => {
+    ticket = document.querySelectorAll(".ticket");
+    if (isLock == true) {
+        alert("Please unlock")
+        return;
+    }
+   
+    for (i = 0; i < ticket.length; i++) {
+        ticket[i].addEventListener("click", (e) => {
+            // e.preventDefault();
+                if (isLock == true) {
+                   return 0;
+			    }
+				e.currentTarget.remove();
+			});
+    }
+    // isLock = true;
+})
 
 
 function createTicket(isLock) {
     if (isLock) {
         return;
     }
+    let modallength = (document.querySelectorAll(".modal")).length;
+    if (modallength > 0) {
+        return;
+    }
+
     let modalEle = document.createElement("div");
     modalEle.setAttribute("class", "modal");
     modalEle.innerHTML = `<textarea name="" placeholder="Enter some task ..." class="modal-area"></textarea>
@@ -103,8 +166,6 @@ function createTicket(isLock) {
                 <textarea name="" readonly>${value}</textarea>
             </div>`;
             main[0].appendChild(ticketele);
-            
-            // console.log(value + 5);
         }
     })
     
@@ -112,71 +173,45 @@ function createTicket(isLock) {
 }
 
 
-function changeColor() {
-     isLock = true;
-			ticket = document.querySelectorAll(".ticket");
-			for (let i = 0; i < ticket.length; i++) {
-				if (ticket[i].style.display != "none") {
-					ticket[i].addEventListener("click", (e) => {
-						if (isLock == false) return;
-						let eleClass = ticket[i].children[0].classList[0];
-						let element = ticket[i].querySelector(`.${eleClass}`);
-						let eleColor = element.style.backgroundColor;
-						for (let i = 0; i < box.length; i++) {
-							let cbox = box[i].classList[1];
-							console.log(cbox);
-							if (cbox == eleColor) {
-								eleColor = box[(i + 1) % box.length].classList[1];
-								break;
-							}
-						}
-
-						console.log(eleColor);
-						element.style.backgroundColor = eleColor;
-						unlockBtn[0].addEventListener("click", () => {
-							isLock = false;
-							return;
-						});
-					});
-				}
-			}
-} 
 
 
+changeBtn.addEventListener('click', () => {
+    lockme();
+    // ticketHeader = document.querySelectorAll(".ticket-header");
+     ticket = document.querySelectorAll(".ticket");
+    for (let i = 0; i < ticket.length; i++){
+        if (ticket[i].style.display != "none") {
+             ticket[i].addEventListener("click", (e) => {
+								if (isLock == false) return;
+								let eleClass = ticket[i].children[0].classList[0];
+								let element = ticket[i].querySelector(`.${eleClass}`);
+								let eleColor = element.style.backgroundColor;
+								for (let i = 0; i < box.length; i++) {
+									let cbox = box[i].classList[1];
+									// console.log(cbox);
+									if (cbox == eleColor) {
+										eleColor = box[(i + 1) % box.length].classList[1];
+										break;
+									}
+								}
 
-function removeElement() {
-    ticket = document.querySelectorAll(".ticket");
-		
-		if (isLock == true) {
-			alert("Please click on unlock");
-			return;
-		}
-		for (i = 0; i < ticket.length; i++) {
-			ticket[i].addEventListener("click", (e) => {
-				e.currentTarget.remove();
-			});
-		}
-}
-
-function filterEle() {
-    for (let i = 0; i < box.length; i++){
-        box[i].addEventListener('click', () => {
-             let color = box[i].classList[1];
-            ticket = document.querySelectorAll('.ticket');
-            for (let i = 0; i < ticket.length; i++){
-             let eleClass = ticket[i].children[0].classList[0];
-			 let element = ticket[i].querySelector(`.${eleClass}`);
-            let eleColor = element.style.backgroundColor;
-                 if (eleColor == color) {
-                    ticket[i].style.display="block"
-                 }
-                 else {
-                    ticket[i].style.display = "none";
-                 }
+								// console.log(eleColor);
+								element.style.backgroundColor = eleColor;
+								unlockBtn[0].addEventListener("click", () => {
+									isLock = false;
+									return;
+								});
+							});
+            
         }
-        })
+    
     }
-}
+})
+
+
+
+
+
 
 // function filterEle() {
 //     for (let i = 0; i < box.length; i++){
