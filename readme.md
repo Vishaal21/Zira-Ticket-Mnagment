@@ -1,1 +1,1 @@
-## Jira Ticket Management
+## Jira Ticket managment
